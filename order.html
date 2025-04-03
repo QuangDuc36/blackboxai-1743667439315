@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặt suất ăn bệnh viện</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+    <div class="container mx-auto px-4 py-8">
+        <!-- Header -->
+        <header class="mb-8">
+            <h1 class="text-3xl font-bold text-blue-800">ĐẶT SUẤT ĂN BỆNH NHÂN</h1>
+            <p class="text-gray-600">Bệnh viện Đa khoa Phương Đông</p>
+            <div class="flex justify-between items-center mt-4">
+                <div id="user-info" class="flex items-center">
+                    <img id="user-avatar" class="w-10 h-10 rounded-full mr-3" src="" alt="User avatar">
+                    <span id="user-name" class="font-medium"></span>
+                </div>
+                <button id="logout-btn" class="text-red-600 hover:text-red-800">
+                    <i class="fas fa-sign-out-alt mr-1"></i> Đăng xuất
+                </button>
+            </div>
+        </header>
+
+        <!-- Patient Information Form -->
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h2 class="text-xl font-semibold mb-4 text-gray-700">THÔNG TIN BỆNH NHÂN</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div>
+                    <label class="block text-gray-700 mb-2">Họ tên bệnh nhân</label>
+                    <input type="text" id="patient-name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <div>
+                    <label class="block text-gray-700 mb-2">Tầng</label>
+                    <select id="floor" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="">Chọn tầng</option>
+                        <option value="4">Tầng 4</option>
+                        <option value="6">Tầng 6</option>
+                        <option value="7">Tầng 7</option>
+                        <option value="8">Tầng 8</option>
+                        <option value="9">Tầng 9</option>
+                        <option value="10">Tầng 10</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-gray-700 mb-2">Số phòng</label>
+                    <input type="text" id="room-number" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+            </div>
+        </section>
+
+        <!-- Meal Selection -->
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h2 class="text-xl font-semibold mb-4 text-gray-700">ĐẶT SUẤT ĂN</h2>
+            
+            <!-- Morning Meal -->
+            <div class="mb-6">
+                <h3 class="text-lg font-medium mb-3 text-blue-600">Buổi sáng (6:00 - 7:30)</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="flex items-center">
+                        <input type="checkbox" id="morning-1" class="mr-3 h-5 w-5">
+                        <label for="morning-1" class="flex-1">Phở bò</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="morning-2" class="mr-3 h-5 w-5">
+                        <label for="morning-2" class="flex-1">Bánh mì trứng</label>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <label class="block text-gray-700 mb-1">Ghi chú</label>
+                    <textarea id="morning-notes" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" rows="2"></textarea>
+                </div>
+            </div>
+
+            <!-- Noon Meal -->
+            <div class="mb-6">
+                <h3 class="text-lg font-medium mb-3 text-blue-600">Buổi trưa (11:00 - 12:30)</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="flex items-center">
+                        <input type="checkbox" id="noon-1" class="mr-3 h-5 w-5">
+                        <label for="noon-1" class="flex-1">Cơm gà xé</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="noon-2" class="mr-3 h-5 w-5">
+                        <label for="noon-2" class="flex-1">Canh chua cá lóc</label>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <label class="block text-gray-700 mb-1">Ghi chú</label>
+                    <textarea id="noon-notes" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" rows="2"></textarea>
+                </div>
+            </div>
+
+            <!-- Afternoon Meal -->
+            <div class="mb-6">
+                <h3 class="text-lg font-medium mb-3 text-blue-600">Buổi phụ chiều (14:30 - 15:30)</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="flex items-center">
+                        <input type="checkbox" id="afternoon-1" class="mr-3 h-5 w-5">
+                        <label for="afternoon-1" class="flex-1">Cháo thịt bằm</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="afternoon-2" class="mr-3 h-5 w-5">
+                        <label for="afternoon-2" class="flex-1">Súp gà</label>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <label class="block text-gray-700 mb-1">Ghi chú</label>
+                    <textarea id="afternoon-notes" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" rows="2"></textarea>
+                </div>
+            </div>
+
+            <!-- Dinner Meal -->
+            <div class="mb-4">
+                <h3 class="text-lg font-medium mb-3 text-blue-600">Bữa tối (17:30 - 19:00)</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="flex items-center">
+                        <input type="checkbox" id="dinner-1" class="mr-3 h-5 w-5">
+                        <label for="dinner-1" class="flex-1">Cơm sườn</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="dinner-2" class="mr-3 h-5 w-5">
+                        <label for="dinner-2" class="flex-1">Canh bí đỏ</label>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <label class="block text-gray-700 mb-1">Ghi chú</label>
+                    <textarea id="dinner-notes" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" rows="2"></textarea>
+                </div>
+            </div>
+        </section>
+
+        <!-- Submit Button -->
+        <div class="text-center">
+            <button id="submit-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300">
+                <i class="fas fa-paper-plane mr-2"></i> GỬI ĐƠN ĐẶT SUẤT ĂN
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
